@@ -189,7 +189,7 @@ Context2d::Context2d(Canvas *canvas) {
   _context = canvas->createCairoContext();
   _layout = pango_cairo_create_layout(_context);
   state = states[stateno = 0] = (canvas_state_t *) malloc(sizeof(canvas_state_t));
-  
+
   resetState(true);
 }
 
@@ -1765,7 +1765,7 @@ NAN_SETTER(Context2d::SetFillStyle) {
   if (Nan::New(Gradient::constructor)->HasInstance(value) ||
       Nan::New(Pattern::constructor)->HasInstance(value)) {
     context->_fillStyle.Reset(value);
-    
+
     Local<Object> obj = Nan::To<Object>(value).ToLocalChecked();
     if (Nan::New(Gradient::constructor)->HasInstance(obj)){
       Gradient *grad = Nan::ObjectWrap::Unwrap<Gradient>(obj);
@@ -1813,7 +1813,7 @@ NAN_SETTER(Context2d::SetStrokeStyle) {
   if (Nan::New(Gradient::constructor)->HasInstance(value) ||
       Nan::New(Pattern::constructor)->HasInstance(value)) {
     context->_strokeStyle.Reset(value);
-    
+
     Local<Object> obj = Nan::To<Object>(value).ToLocalChecked();
     if (Nan::New(Gradient::constructor)->HasInstance(obj)){
       Gradient *grad = Nan::ObjectWrap::Unwrap<Gradient>(obj);
@@ -2438,7 +2438,7 @@ NAN_GETTER(Context2d::GetFont) {
  *   - size
  *   - unit
  *   - family
- */ 
+ */
 
 NAN_SETTER(Context2d::SetFont) {
   if (!value->IsString()) return;
